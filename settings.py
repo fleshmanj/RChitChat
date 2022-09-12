@@ -1,3 +1,4 @@
 PORT = 1224
+PORT_OUT = 1225
 HOSTNAME = "0.0.0.0"
 USERNAME = "Joshua"

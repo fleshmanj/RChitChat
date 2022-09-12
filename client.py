@@ -1,6 +1,6 @@
 import socket
 import threading
-from settings import PORT, HOSTNAME, USERNAME
+from settings import PORT,PORT_OUT, HOSTNAME, USERNAME
 from abc import ABC, abstractmethod
 
 
@@ -67,7 +67,7 @@ class User:
             temp = input("Enter the ip address and port to connect to i.e. 0.0.0.0:1234\n")
             temp = temp.split(":")
             print(temp)
-            self.connection.connect((temp[0], PORT))
+            self.connection.connect((temp[0], PORT_OUT))
         if command == "/msg":
             temp = input()
             if len(temp) > 0:
