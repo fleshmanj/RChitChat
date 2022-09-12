@@ -33,6 +33,7 @@ class Sconnection(Connection):
     def recv(self):
         while True:
             conn, addr = self.sock_in.accept()
+            print(f"Connection from {addr} has been established!")
             self.connections_out[addr] = conn
             while True:
                 data = conn.recv(4096)
