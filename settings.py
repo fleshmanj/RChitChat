@@ -1,0 +1,3 @@
+PORT = 1224
+HOSTNAME = "0.0.0.0"
+USERNAME = "Joshua"
