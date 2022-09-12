@@ -1,5 +1,5 @@
 import threading
-from settings import PORT
+from settings import PORT, NODES
 from connection import Sconnection
 
 
@@ -9,6 +9,8 @@ class User:
         self.sock_out = None
         self.name = name
         self.connection = Sconnection()
+        for i, node in enumerate(NODES):
+            self.connection.connect((NODES[i], PORT))
         t = threading.Thread(target=self.connection.recv, daemon=True)
         t.start()
 
@@ -16,12 +18,11 @@ class User:
         command = input("\nEnter a command\n")
         if command == "/c":
             temp = input("Enter the ip address and port to connect to i.e. 0.0.0.0\n")
-            self.connection.connect((temp, PORT))
-        if command == "/msg":
-            temp = input()
-            if len(temp) > 0:
-                self.connection.send(temp)
-        if command == "/q":
+
+        if command.startswith("/") == True:
+            if len(command) > 1:
+                self.connection.send(command)
+        if command == "q":
             return False
         return True
 
