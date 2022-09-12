@@ -67,7 +67,7 @@ class User:
             temp = input("Enter the ip address and port to connect to i.e. 0.0.0.0:1234\n")
             temp = temp.split(":")
             print(temp)
-            self.connection.connect((temp[0], int(temp[1])))
+            self.connection.connect((temp[0], PORT))
         if command == "/msg":
             temp = input()
             if len(temp) > 0:
