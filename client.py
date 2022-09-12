@@ -15,10 +15,8 @@ class User:
     def get_user_input(self):
         command = input("\nEnter a command\n")
         if command == "/c":
-            temp = input("Enter the ip address and port to connect to i.e. 0.0.0.0:1234\n")
-            temp = temp.split(":")
-            print(temp)
-            self.connection.connect((temp[0], PORT))
+            temp = input("Enter the ip address and port to connect to i.e. 0.0.0.0\n")
+            self.connection.connect((temp, PORT))
         if command == "/msg":
             temp = input()
             if len(temp) > 0:
